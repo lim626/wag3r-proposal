@@ -1,0 +1,2592 @@
+<!DOCTYPE html>
+<!-- ==========================================================
+     VARIANT: PRICES INCLUDED
+     This file shows all pricing (setup, monthly, licence-holder fees,
+     Aff-Starter tier rates, Value Comparison ranges).
+     A separate "no prices" version exists for early-stage pitches.
+     ========================================================== -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="deck-variant" content="prices-included">
+<title>Crypto Launch Proposal · WAG3R + Aff-Starter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --ink: #0A0A0B;
+  --card: #0E0E10;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --paper: #FAFAFA;
+  --text: #B5B5B5;
+  --text-soft: #6F6F73;
+  --lime: #D4FF3A;
+  --lime-dim: #A3C72A;
+  --display: 'Archivo', system-ui, sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--black);
+  color: var(--text);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle grain overlay — matches the WAG3R site texture */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+}
+
+/* ====================  NAV  ==================== */
+.nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(14, 14, 16, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--paper);
+}
+
+.nav-brand .market {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--text);
+  letter-spacing: 0.1em;
+}
+
+.nav-brand .plus {
+  color: var(--text-soft);
+  font-weight: 400;
+  margin: 0 4px;
+}
+
+.nav-brand .aff {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-jump {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--paper);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav-jump option {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ====================  SLIDE BASE  ==================== */
+.slide {
+  min-height: 100vh;
+  padding: 140px 80px 80px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.eyebrow::before { content: "// "; }
+
+.slide-num {
+  position: absolute;
+  top: 140px;
+  right: 80px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+}
+
+.slide-num .of {
+  margin: 0 4px;
+  color: var(--line);
+}
+
+/* ====================  TYPOGRAPHY  ==================== */
+h1.huge {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(56px, 8vw, 132px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+
+h1.huge .dim {
+  color: var(--text);
+}
+
+h2.big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(44px, 5.5vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+
+h2.big .dim {
+  color: var(--text);
+}
+
+h2.big .lime { color: var(--lime); }
+
+p.lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 64ch;
+  margin-top: 32px;
+}
+
+p.body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.lime { color: var(--lime); }
+
+/* ====================  CARDS  ==================== */
+.card {
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+  border-radius: 4px;
+  position: relative;
+  background: var(--ink);
+}
+
+.card.highlight {
+  border-color: var(--lime);
+  background: rgba(212, 255, 58, 0.03);
+}
+
+.card-label {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+}
+
+.card-list li {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  padding: 8px 0 8px 24px;
+  position: relative;
+}
+
+.card-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--lime);
+  font-size: 12px;
+}
+
+.card-list.bigger li {
+  font-size: 15px;
+  padding: 10px 0 10px 28px;
+}
+
+/* Lime dot accent on cards */
+.dot-accent {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px rgba(212, 255, 58, 0.6);
+}
+
+/* ====================  GRID UTILITIES  ==================== */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid-mt-l { margin-top: 64px; }
+.grid-mt-m { margin-top: 48px; }
+
+/* ====================  COVER (Slide 1) ==================== */
+.cover {
+  padding: 140px 80px 80px;
+  position: relative;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.cover-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+}
+
+.cover-tag::before { content: "// "; }
+
+.cover h1.huge {
+  margin-top: 80px;
+  max-width: 18ch;
+}
+
+.cover h1.huge .lime { color: var(--lime); }
+
+.cover-foot {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.cover-foot .item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cover-foot .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+}
+
+.cover-foot .val {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: -0.005em;
+}
+
+.cover-foot .val.lime { color: var(--lime); }
+
+/* ====================  LAYERS (Slide 3) ==================== */
+.layers {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.layer {
+  padding: 40px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-strong);
+  position: relative;
+}
+
+.layer:last-child { border-right: none; }
+
+.layer .layer-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.layer .layer-tag::before { content: "// "; }
+
+.layer h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.layer .who {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.layer p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.layer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.layer ul li {
+  font-size: 13px;
+  padding: 8px 0 8px 22px;
+  position: relative;
+  color: var(--text);
+  border-top: 1px solid var(--line);
+}
+
+.layer ul li:first-child { border-top: none; }
+
+.layer ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--lime);
+  font-size: 11px;
+}
+
+/* ====================  PRICE BOXES  ==================== */
+.price-tile {
+  border: 1px solid var(--line);
+  padding: 36px 32px;
+  border-radius: 4px;
+  background: var(--ink);
+  position: relative;
+}
+
+.price-tile.dark { background: var(--black); }
+
+.price-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.price-tag::before { content: "// "; }
+
+.price-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.025em;
+  margin: 8px 0 12px;
+}
+
+.price-num .unit {
+  font-size: 20px;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+.price-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.price-tile p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.price-rows {
+  margin-top: 20px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  gap: 16px;
+}
+
+.price-row:first-child { border-top: none; }
+
+.price-row .pr-l {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.price-row .pr-r {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--paper);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.price-row.total {
+  border-top: 1px solid var(--lime);
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.price-row.total .pr-l {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--paper);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.price-row.total .pr-r {
+  color: var(--lime);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ====================  SERVICES (Slide 6) ==================== */
+.services {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.service {
+  border: 1px solid var(--line);
+  padding: 28px 22px;
+  border-radius: 4px;
+  background: var(--ink);
+  position: relative;
+}
+
+.service.free {
+  border-color: var(--lime);
+  background: rgba(212, 255, 58, 0.04);
+}
+
+.service .free-flag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--lime);
+  color: var(--black);
+  padding: 4px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.service h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+
+.service .svc-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.service p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  min-height: 70px;
+}
+
+.service .svc-price {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--lime);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ====================  TRUST STRIP  ==================== */
+.trust {
+  margin-top: 72px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.trust-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.trust-label::before { content: "// "; }
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+
+.logo {
+  border: 1px solid var(--line);
+  padding: 14px 8px;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 10px;
+  color: var(--text);
+  background: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+/* ====================  TIER TABLE  ==================== */
+.tier {
+  margin-top: 40px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tier th, .tier td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.tier th {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lime);
+  font-weight: 500;
+  border-bottom: 1px solid var(--lime);
+  background: transparent;
+}
+
+.tier td.t-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.tier td.t-now {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--lime);
+  font-variant-numeric: tabular-nums;
+}
+
+.tier td.t-was {
+  font-family: var(--mono);
+  color: var(--text-soft);
+  text-decoration: line-through;
+  font-variant-numeric: tabular-nums;
+}
+
+.tier td.t-specs {
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ====================  TIMELINE  ==================== */
+.timeline {
+  margin-top: 64px;
+  position: relative;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.tl-step {
+  padding-right: 24px;
+}
+
+.tl-step .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--text-soft);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.tl-step.live .dot {
+  background: var(--lime);
+  border-color: var(--lime);
+  box-shadow: 0 0 16px rgba(212, 255, 58, 0.5);
+}
+
+.tl-step .phase {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.tl-step h5 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.tl-step p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ====================  WORKED EXAMPLE  ==================== */
+.worked {
+  margin-top: 56px;
+  border: 1px solid var(--lime);
+  border-radius: 4px;
+  padding: 40px;
+  background: rgba(212, 255, 58, 0.03);
+}
+
+.worked-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.worked-label::before { content: "// "; }
+
+.worked h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.worked > p {
+  font-size: 14px;
+  color: var(--text);
+  max-width: 70ch;
+  margin-bottom: 32px;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.scenario {
+  border-left: 2px solid var(--lime);
+  padding-left: 20px;
+}
+
+.scenario .sc-ggr {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.scenario .sc-calc {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.scenario .sc-pay {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--lime);
+  letter-spacing: -0.02em;
+}
+
+.scenario .sc-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-soft);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* ====================  EXPAND  ==================== */
+.expand-list {
+  margin-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.expand {
+  border-bottom: 1px solid var(--line);
+}
+
+.expand-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.expand-trigger:hover { color: var(--lime); }
+
+.expand-icon {
+  flex-shrink: 0;
+  margin-left: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  color: var(--lime);
+  font-size: 14px;
+  transition: all 0.25s;
+}
+
+.expand.open .expand-icon {
+  background: var(--lime);
+  color: var(--black);
+  transform: rotate(45deg);
+}
+
+.expand-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.expand.open .expand-body { max-height: 900px; }
+
+.expand-inner {
+  padding: 0 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.expand-inner .col ul { list-style: none; }
+.expand-inner .col ul li {
+  padding: 6px 0 6px 22px;
+  position: relative;
+  font-size: 13px;
+}
+.expand-inner .col ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  color: var(--lime);
+  font-size: 11px;
+}
+.expand-inner .col p { margin-bottom: 12px; }
+.expand-inner .col p strong { color: var(--paper); font-weight: 600; }
+
+/* ====================  IO LISTS  ==================== */
+.io {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.io-col h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lime);
+  margin-bottom: 24px;
+}
+
+.io-col.out h4 {
+  color: var(--text-soft);
+  border-bottom-color: var(--text-soft);
+}
+
+.io-list {
+  list-style: none;
+}
+
+.io-list li {
+  padding: 14px 0 14px 28px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--text);
+  position: relative;
+}
+
+.io-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  color: var(--lime);
+  font-size: 12px;
+}
+
+.io-col.out .io-list li::before {
+  content: "×";
+  color: var(--text-soft);
+  top: 12px;
+  font-size: 14px;
+}
+
+/* ====================  COMPARISON  ==================== */
+.compare {
+  margin-top: 56px;
+}
+
+.cmp-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cmp-row:last-child { border-bottom: 1px solid var(--line); }
+
+.cmp-label {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.cmp-body {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.cmp-body strong { color: var(--paper); font-weight: 600; }
+
+/* ====================  TERM CARDS  ==================== */
+.terms {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.term {
+  border: 1px solid var(--line);
+  padding: 36px 28px;
+  border-radius: 4px;
+  background: var(--ink);
+  position: relative;
+}
+
+.term-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--lime);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.term-tag::before { content: "// "; }
+
+.term h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.term p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ====================  NEXT STEPS  ==================== */
+.steps {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step {
+  border: 1px solid var(--line);
+  padding: 32px 24px;
+  border-radius: 4px;
+  background: var(--ink);
+  position: relative;
+}
+
+.step .step-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 72px;
+  color: var(--lime);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin-bottom: 16px;
+}
+
+.step h5 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.cta {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--lime);
+  color: var(--black);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 16px 28px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.2s;
+}
+
+.cta-btn:hover {
+  background: var(--paper);
+}
+
+.cta-btn .arrow {
+  font-family: var(--mono);
+}
+
+/* ====================  CALLOUT  ==================== */
+.callout {
+  margin-top: 40px;
+  border-left: 2px solid var(--lime);
+  padding: 16px 24px;
+}
+
+.callout .ctag {
+  color: var(--lime);
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+  margin-right: 12px;
+}
+
+.callout span {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.callout strong { color: var(--paper); }
+
+/* ====================  TWO-COL LAYOUT  ==================== */
+.split {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.split.narrow { grid-template-columns: 0.9fr 1.1fr; }
+
+/* ====================  FOOTER  ==================== */
+.footer {
+  padding: 48px 80px;
+  background: var(--ink);
+  border-top: 1px solid var(--line-strong);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer .left {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.footer .left .plus { color: var(--text-soft); margin: 0 8px; }
+
+.footer .right {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+/* ====================  PRINT  ==================== */
+@media print {
+  .nav { position: static; transform: none; }
+  .slide { page-break-after: always; min-height: auto; }
+  .expand-body { max-height: none !important; }
+  .expand-icon { display: none; }
+  body::before { display: none; }
+}
+
+/* ====================  RESPONSIVE  ==================== */
+@media (max-width: 1024px) {
+  .slide { padding: 120px 40px 60px; }
+  .slide-num { top: 120px; right: 40px; }
+  .grid-3, .grid-4, .services, .layers, .timeline-grid, .scenarios, .terms, .steps { grid-template-columns: repeat(2, 1fr); }
+  .layer { border-right: none; border-bottom: 1px solid var(--line); }
+  .logos { grid-template-columns: repeat(4, 1fr); }
+  .split, .grid-2, .io { grid-template-columns: 1fr; }
+  .cmp-row { grid-template-columns: 1fr; gap: 12px; }
+  .cover-foot { grid-template-columns: repeat(2, 1fr); }
+  .nav { padding: 8px 8px 8px 16px; gap: 12px; }
+  .nav-links { display: none; }
+}
+/* ====================  ANIMATIONS  ==================== */
+
+/* Initial hidden state for animated elements */
+.slide .eyebrow,
+.slide .cover-tag,
+.slide h2.big,
+.slide h1.huge,
+.slide p.lead,
+.slide .card,
+.slide .price-tile,
+.slide .layer,
+.slide .term,
+.slide .step,
+.slide .service,
+.slide .tier,
+.slide .worked,
+.slide .timeline,
+.slide .expand-list,
+.slide .io,
+.slide .callout,
+.slide .cta,
+.slide .cover-foot,
+.slide .trust,
+.slide .price-detail,
+.slide .lic-block,
+.slide .scenarios,
+.slide .terms,
+.slide .steps,
+.slide .layers,
+.slide .services,
+.slide .compare {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.5s ease-out;
+}
+
+/* Visible state */
+.slide.visible .eyebrow,
+.slide.visible .cover-tag,
+.slide.visible h2.big,
+.slide.visible h1.huge,
+.slide.visible p.lead,
+.slide.visible .card,
+.slide.visible .price-tile,
+.slide.visible .layer,
+.slide.visible .term,
+.slide.visible .step,
+.slide.visible .service,
+.slide.visible .tier,
+.slide.visible .worked,
+.slide.visible .timeline,
+.slide.visible .expand-list,
+.slide.visible .io,
+.slide.visible .callout,
+.slide.visible .cta,
+.slide.visible .cover-foot,
+.slide.visible .trust,
+.slide.visible .price-detail,
+.slide.visible .lic-block,
+.slide.visible .scenarios,
+.slide.visible .terms,
+.slide.visible .steps,
+.slide.visible .layers,
+.slide.visible .services,
+.slide.visible .compare {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger sequence — headlines first, body second, content blocks last */
+.slide .eyebrow, .slide .cover-tag { transition-delay: 0s; }
+.slide h2.big, .slide h1.huge { transition-delay: 0.08s; }
+.slide p.lead { transition-delay: 0.18s; }
+.slide .tier, .slide .timeline, .slide .worked, .slide .expand-list,
+.slide .io, .slide .price-detail, .slide .lic-block, .slide .compare { transition-delay: 0.28s; }
+.slide .callout { transition-delay: 0.40s; }
+.slide .cover-foot, .slide .trust { transition-delay: 0.32s; }
+
+/* Stagger children within grids */
+.slide .grid-2 > *:nth-child(1),
+.slide .grid-3 > *:nth-child(1),
+.slide .grid-4 > *:nth-child(1),
+.slide .layers .layer:nth-child(1),
+.slide .scenarios > *:nth-child(1),
+.slide .terms > *:nth-child(1),
+.slide .steps > *:nth-child(1),
+.slide .services > *:nth-child(1) { transition-delay: 0.26s; }
+
+.slide .grid-2 > *:nth-child(2),
+.slide .grid-3 > *:nth-child(2),
+.slide .grid-4 > *:nth-child(2),
+.slide .layers .layer:nth-child(2),
+.slide .scenarios > *:nth-child(2),
+.slide .terms > *:nth-child(2),
+.slide .steps > *:nth-child(2),
+.slide .services > *:nth-child(2) { transition-delay: 0.32s; }
+
+.slide .grid-3 > *:nth-child(3),
+.slide .grid-4 > *:nth-child(3),
+.slide .layers .layer:nth-child(3),
+.slide .scenarios > *:nth-child(3),
+.slide .terms > *:nth-child(3),
+.slide .steps > *:nth-child(3),
+.slide .services > *:nth-child(3) { transition-delay: 0.38s; }
+
+.slide .grid-3 > *:nth-child(4),
+.slide .grid-4 > *:nth-child(4),
+.slide .terms > *:nth-child(4),
+.slide .steps > *:nth-child(4) { transition-delay: 0.44s; }
+
+.slide .grid-3 > *:nth-child(5) { transition-delay: 0.50s; }
+.slide .grid-3 > *:nth-child(6) { transition-delay: 0.56s; }
+
+/* Lime accent word — delayed reveal draws the eye */
+.slide h2.big .lime, .slide h1.huge .lime {
+  opacity: 0;
+  transition: opacity 0.55s ease-out 0.5s;
+}
+.slide.visible h2.big .lime, .slide.visible h1.huge .lime {
+  opacity: 1;
+}
+
+/* Lime dot — subtle breathing pulse */
+.dot-accent {
+  animation: dot-pulse 2.8s ease-in-out infinite;
+}
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(212, 255, 58, 0.6); opacity: 0.95; }
+  50% { box-shadow: 0 0 22px rgba(212, 255, 58, 0.95); opacity: 1; }
+}
+
+/* Strikethrough draw — JS wraps t-was cells in .t-was-inner */
+.tier td.t-was { text-decoration: none; }
+.t-was-inner {
+  position: relative;
+  display: inline-block;
+}
+.t-was-inner::after {
+  content: '';
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--text-soft);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s ease-out 0.55s;
+}
+.slide.visible .t-was-inner::after {
+  transform: scaleX(1);
+}
+
+/* Card hover states — subtle lift + lime border glow */
+.card, .price-tile, .term, .step, .service, .layer {
+  transition: opacity 0.6s ease-out, transform 0.35s ease-out,
+              border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.slide.visible .card:hover,
+.slide.visible .price-tile:hover,
+.slide.visible .term:hover,
+.slide.visible .step:hover,
+.slide.visible .service:hover,
+.slide.visible .layer:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 255, 58, 0.55);
+  box-shadow: 0 6px 28px rgba(212, 255, 58, 0.08);
+}
+
+/* Highlighted card (Provably fair hero) gets a stronger hover */
+.slide.visible .card.highlight:hover {
+  border-color: rgba(212, 255, 58, 0.85);
+  box-shadow: 0 8px 36px rgba(212, 255, 58, 0.15);
+}
+
+/* Print mode — show everything, no animations */
+@media print {
+  .slide .eyebrow, .slide .cover-tag, .slide h2.big, .slide h1.huge, .slide p.lead,
+  .slide .card, .slide .price-tile, .slide .layer, .slide .term, .slide .step, .slide .service,
+  .slide .tier, .slide .worked, .slide .timeline, .slide .expand-list, .slide .io,
+  .slide .callout, .slide .cta, .slide .cover-foot, .slide .trust, .slide .price-detail,
+  .slide .lic-block, .slide .scenarios, .slide .terms, .slide .steps, .slide .layers,
+  .slide .services, .slide .compare,
+  .slide h2.big .lime, .slide h1.huge .lime {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .t-was-inner::after { transform: scaleX(1) !important; }
+  .dot-accent { animation: none !important; }
+}
+
+/* Accessibility — respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+  .slide .eyebrow, .slide .cover-tag, .slide h2.big, .slide h1.huge, .slide p.lead,
+  .slide .card, .slide .price-tile, .slide .layer, .slide .term, .slide .step, .slide .service,
+  .slide .tier, .slide .worked, .slide .timeline, .slide .expand-list, .slide .io,
+  .slide .callout, .slide .cta, .slide .cover-foot, .slide .trust, .slide .price-detail,
+  .slide .lic-block, .slide .scenarios, .slide .terms, .slide .steps, .slide .layers,
+  .slide .services, .slide .compare,
+  .slide h2.big .lime, .slide h1.huge .lime {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .t-was-inner::after { transform: scaleX(1) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ====================  NAV  ==================== -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span>WAG3R</span>
+    <span class="market">MARKET</span>
+    <span class="plus">+</span>
+    <span class="aff">AFF-STARTER</span>
+  </div>
+  <div class="nav-links">
+    <select class="nav-jump" onchange="if(this.value) location.hash=this.value">
+      <option value="">JUMP TO SLIDE</option>
+      <option value="#s1">01 — Cover</option>
+      <option value="#s3">02 — What's included</option>
+      <option value="#s4">03 — Platform</option>
+      <option value="#s4b">04 — Crypto stack</option>
+      <option value="#s5">05 — Licence + Payments</option>
+      <option value="#s6">06 — Managed services</option>
+      <option value="#s7">07 — Affiliates (free)</option>
+      <option value="#s8">08 — Sentry</option>
+      <option value="#s9">09 — Frontline</option>
+      <option value="#s10">10 — Social</option>
+      <option value="#s11">11 — Schedule</option>
+      <option value="#s12">12 — Setup payment</option>
+      <option value="#s13">13 — Monthly + GGR</option>
+      <option value="#s14">14 — Pass-through</option>
+      <option value="#s15">15 — In / Out</option>
+      <option value="#s16">16 — Value comparison</option>
+      <option value="#s17">17 — Term &amp; exit</option>
+      <option value="#s19">18 — Next steps</option>
+    </select>
+  </div>
+</nav>
+
+<!-- ====================  SLIDE 1 — COVER  ==================== -->
+<section class="slide cover" id="s1">
+  <div>
+    <div class="cover-tag">JOINT LAUNCH PROPOSAL · CRYPTO-ONLY</div>
+    <h1 class="huge">A crypto-native launch.<br><span class="lime">End to end.</span></h1>
+  </div>
+
+  <div class="cover-foot">
+    <div class="item">
+      <span class="label">Audience</span>
+      <span class="val">Crypto-native operators</span>
+    </div>
+    <div class="item">
+      <span class="label">From</span>
+      <span class="val">WAG3R + Aff-Starter</span>
+    </div>
+    <div class="item">
+      <span class="label">Date</span>
+      <span class="val">May 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 3 — WHAT WE PROPOSE  ==================== -->
+<section class="slide" id="s3">
+  <div class="eyebrow">WHAT WE PROPOSE</div>
+  <span class="slide-num">02 <span class="of">/</span> 18</span>
+
+  <h2 class="big">One launch.<br>Three layers.<br><span class="lime">One framework.</span></h2>
+  <p class="lead">The full stack as a single engagement — platform, regulated services, and ongoing managed operations under one commercial. External costs (licensing, game content, marketing) are clearly separated. No vendor margins buried in headline pricing.</p>
+
+  <div class="layers">
+    <div class="layer">
+      <div class="layer-tag">LAYER 01</div>
+      <h3>Platform</h3>
+      <div class="who">Provided by WAG3R</div>
+      <p>Crypto-native iGaming platform with custom features scoped via discovery workshop. 2-month build to go-live (1 build + 1 testing).</p>
+      <ul>
+        <li>Casino, multi-chain wallet, bonus engine</li>
+        <li>Provably fair / on-chain transparency</li>
+        <li>QuestTracker custom features + front-end</li>
+        <li>Bonus Coin loyalty currency (internal)</li>
+      </ul>
+    </div>
+    <div class="layer">
+      <div class="layer-tag">LAYER 02</div>
+      <h3>Licence + Payments</h3>
+      <div class="who">Master licensing partner + DexPay (in-house)</div>
+      <p>Curaçao licence held by our master licensing partner; integration handled in-platform. Crypto payments via in-house DexPay, bundled in the platform. No fiat orchestration vendor needed.</p>
+      <ul>
+        <li>Curaçao sub-licence facilitation</li>
+        <li>DexPay crypto payments (bundled)</li>
+        <li>Multi-chain wallet support</li>
+        <li>Compliance facilitation</li>
+      </ul>
+    </div>
+    <div class="layer">
+      <div class="layer-tag">LAYER 03</div>
+      <h3>Managed services</h3>
+      <div class="who">Delivered by Aff-Starter</div>
+      <p>Four service lines on the H.O.G platform. Affiliates free. Risk, CS, and social charged at tier, scaling with the brand.</p>
+      <ul>
+        <li>Affiliates — FREE ($4k value)</li>
+        <li>Sentry — risk + payment ops</li>
+        <li>Frontline — customer service</li>
+        <li>Social — X + Telegram</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 4 — WAG3R PLATFORM  ==================== -->
+<section class="slide" id="s4">
+  <div class="eyebrow">LAYER 01 — PLATFORM</div>
+  <span class="slide-num">03 <span class="of">/</span> 18</span>
+
+  <h2 class="big">The platform, <span class="dim">crypto-native, brand-skinned.</span></h2>
+  <p class="lead">2-month build to go-live (1 month build + 1 month testing), including a discovery workshop where we scope your custom features against the standard platform. No surprise mid-build scope creep — the workshop is the deliverable.</p>
+
+  <div class="grid-2 grid-mt-l">
+    <div class="card">
+      <div class="card-label">Included in setup</div>
+      <ul class="card-list bigger">
+        <li>Casino, multi-chain wallet, bonus engine — core platform, game aggregation, multi-currency wallet, bonus &amp; promotion engine, player segments</li>
+        <li>Custom features scoped via discovery workshop, fixed launch budget</li>
+        <li><strong style="color:var(--paper)">QuestTracker</strong> — customised features and front-end build included, with Bonus Coin loyalty currency</li>
+        <li><strong style="color:var(--paper)">DexPay</strong> — multi-chain crypto payment processing, bundled in</li>
+        <li>Infrastructure — hosting, monitoring, deployment, environments</li>
+        <li>One developer per month post-launch for maintenance &amp; minor features</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">Core systems · all available</div>
+      <ul class="card-list bigger">
+        <li><strong style="color:var(--paper)">WhaleCore</strong> — crypto-native player value &amp; wallet intelligence <span style="color:var(--lime); font-family:var(--mono); font-size:11px;">[PER-CALL, NO SETUP]</span></li>
+        <li><strong style="color:var(--paper)">QuestTracker</strong> — behaviour &amp; retention tracking <span style="color:var(--lime); font-family:var(--mono); font-size:11px;">[CUSTOM FE INCLUDED]</span></li>
+        <li><strong style="color:var(--paper)">TheHog</strong> — traffic, partners &amp; campaign operations</li>
+        <li><strong style="color:var(--paper)">Risk Engine</strong> — fraud &amp; abuse prevention, crypto-aware</li>
+        <li><strong style="color:var(--paper)">KYC Engine</strong> — identity &amp; verification (configurable for crypto)</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+  </div>
+
+  <div class="grid-2 grid-mt-l">
+    <div class="price-tile">
+      <div class="price-tag">Setup</div>
+      <div class="price-num">2-month build</div>
+      <div class="price-note">SPLIT-PAID · COMMERCIAL TERMS ON SLIDE 12</div>
+      <p>Includes 1 month build + 1 month testing, discovery workshop, brand customisation, QuestTracker custom features &amp; front-end build, DexPay crypto payment integration, full launch readiness.</p>
+    </div>
+    <div class="price-tile">
+      <div class="price-tag">Monthly</div>
+      <div class="price-num">Min or % of GGR</div>
+      <div class="price-note">PERFORMANCE-ALIGNED · DETAILS ON SLIDE 13</div>
+      <p>A monthly minimum or a percentage of gross gaming revenue, whichever is greater — incentives aligned to brand performance. Includes infrastructure, one developer per month, and DexPay crypto payments bundled. <strong style="color:var(--paper)">WhaleCore</strong> billed separately on per-call usage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 4B — CRYPTO STACK  ==================== -->
+<section class="slide" id="s4b">
+  <div class="eyebrow">CRYPTO STACK</div>
+  <span class="slide-num">04 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Provably fair. On-chain. <span class="lime">Crypto-native.</span></h2>
+  <p class="lead">Crypto-native players expect cryptographic proof of fair play, on-chain transparency, and wallet-level intelligence — not a fiat platform with crypto bolted on. The platform delivers all three natively. Multi-chain payments, on-chain settlement, wallet-level player intel.</p>
+
+  <!-- Hero card: provably fair -->
+  <div class="card highlight" style="margin-top: 48px; padding: 40px;">
+    <div class="card-label" style="font-size: 16px;">// PROVABLY FAIR — THE CRYPTO-NATIVE GUARANTEE</div>
+    <div class="grid-2" style="gap: 48px; margin-top: 20px;">
+      <ul class="card-list bigger">
+        <li>Cryptographic proof of fair game outcomes — every hand, every spin, every roll independently verifiable by the player</li>
+        <li>Player verification UI built into the platform surface — seed inspection, RNG transparency, no third-party tools required</li>
+      </ul>
+      <ul class="card-list bigger">
+        <li>Player-side audit tools — full bet history, seed verification, RNG inspection</li>
+        <li>This is the first thing crypto-native players check — and the first thing fiat-first operators don't have</li>
+        <li>A core differentiator vs. white-label competitors operating on shared aggregator wallets</li>
+      </ul>
+    </div>
+    <span class="dot-accent"></span>
+  </div>
+
+  <div class="grid-3 grid-mt-l">
+    <div class="card">
+      <div class="card-label">On-chain transparency</div>
+      <ul class="card-list">
+        <li>On-chain bet settlement options where chain economics support it</li>
+        <li>Public verifiability of jackpots, prize pools, and bonus distributions</li>
+        <li>Bet history exportable for player-side audit</li>
+        <li>Transparent treasury wallet visibility (optional)</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">Multi-chain wallet</div>
+      <ul class="card-list">
+        <li>BTC, ETH, USDT, USDC, SOL and major chains supported out of the box</li>
+        <li>Per-player on-chain wallet with internal ledger reconciliation</li>
+        <li>Deposit / withdrawal flows for each supported chain</li>
+        <li>Additional chains added on request</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">DexPay crypto payments</div>
+      <ul class="card-list">
+        <li>In-house crypto payment processor, bundled in platform</li>
+        <li>No separate payment vendor relationship to manage</li>
+        <li>Real-time settlement, multi-chain routing</li>
+        <li>Withdrawal review queued through Sentry</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">WhaleCore intelligence</div>
+      <ul class="card-list">
+        <li>Wallet-level player value signals from day one — before deposits</li>
+        <li>Cross-casino visibility: see where players have played before</li>
+        <li>Identify high-value players early in their lifecycle</li>
+        <li>Per-call billing, no setup fee</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">QuestTracker + Bonus Coin loyalty</div>
+      <ul class="card-list">
+        <li>Custom QuestTracker features &amp; front-end build included</li>
+        <li>Bonus Coin internal loyalty currency for engagement points &amp; rewards</li>
+        <li>Not a launched/listed token — internal currency only</li>
+        <li>Quest-based progression, leaderboards, retention triggers</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="card">
+      <div class="card-label">Crypto-aware risk</div>
+      <ul class="card-list">
+        <li>Multi-accounting detection across wallets and chains</li>
+        <li>Wallet clustering and behaviour pattern recognition</li>
+        <li>Bonus abuse and arbitrage detection</li>
+        <li>Sanctions / PEP screening at deposit address level</li>
+      </ul>
+      <span class="dot-accent"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 5 — LICENCE + PAYMENTS  ==================== -->
+<section class="slide" id="s5">
+  <div class="eyebrow">LAYER 02 — LICENCE + PAYMENTS</div>
+  <span class="slide-num">05 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Curaçao licence, <span class="dim">crypto compliance.</span></h2>
+  <p class="lead">Licence held by our Curaçao master licensing partner, who contracts directly with you under their own commercial agreement. Crypto payments handled in-house by DexPay (bundled in our platform fee). Only two licence-holder line items — no Payment IQ, no PSP onboarding.</p>
+
+  <div class="split grid-mt-l">
+    <div>
+      <table class="tier">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Monthly</th>
+            <th>One-off</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="t-name">Licence contribution</td>
+            <td class="t-now">£1,750</td>
+            <td class="t-specs">—</td>
+          </tr>
+          <tr>
+            <td class="t-name">Facilitation fee</td>
+            <td class="t-now">£500</td>
+            <td class="t-specs">—</td>
+          </tr>
+          <tr>
+            <td class="t-name">Curaçao licence app<br><span class="t-specs">(per domain)</span></td>
+            <td class="t-specs">—</td>
+            <td class="t-now">£250</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="price-tile">
+        <div class="price-tag">Licence holder total</div>
+        <div class="price-num">£2,250<span class="unit"> /mo</span></div>
+        <div class="price-note">+ £250 ONE-OFF AT LAUNCH</div>
+        <p>Your master licensing partner is the licence holder of record for Curaçao and bills you directly under its own commercial agreement — these amounts do not flow through our invoice. Crypto payments handled by DexPay (in-house, bundled in platform) — no fiat orchestration vendor needed.</p>
+        <span class="dot-accent"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 6 — MANAGED SERVICES OVERVIEW  ==================== -->
+<section class="slide" id="s6">
+  <div class="eyebrow">LAYER 03 — MANAGED SERVICES</div>
+  <span class="slide-num">06 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Four services. One platform. <span class="dim">Vertical-only.</span></h2>
+  <p class="lead">Aff-Starter operates four service lines on the H.O.G platform — affiliate management, risk &amp; payment ops, customer service, and social media. Affiliates is included free at the $4k tier value. The other three are charged at tier and grow with the brand. Bundle discount: 15% off public rates.</p>
+
+  <div class="services">
+    <div class="service free">
+      <span class="free-flag">FREE</span>
+      <h4>Affiliates</h4>
+      <div class="svc-tag">Sourcing · Deals · Payouts</div>
+      <p>Source affiliates, structure deals, log everything in H.O.G, reconcile payouts. Streamer escrow add-on.</p>
+      <div class="svc-price">$4,000/MO VALUE · INCLUDED</div>
+    </div>
+    <div class="service">
+      <h4>Sentry</h4>
+      <div class="svc-tag">Risk · Fraud · Payment ops</div>
+      <p>Multi-accounting, chargebacks, KYC review, withdrawal review, VIP risk, payment anomaly detection.</p>
+      <div class="svc-price">FROM $1,275/MO (LITE)</div>
+    </div>
+    <div class="service">
+      <h4>Frontline</h4>
+      <div class="svc-tag">Customer service</div>
+      <p>Live chat, email, ticket queues inside your helpdesk. VIP save desk, RG triage, withdrawal escalation.</p>
+      <div class="svc-price">FROM $1,275/MO (LITE)</div>
+    </div>
+    <div class="service">
+      <h4>Social</h4>
+      <div class="svc-tag">X + Telegram</div>
+      <p>End-to-end content, moderation, influencer outreach. Daily posting, crisis comms cover on Driver tier.</p>
+      <div class="svc-price">FROM $1,275/MO</div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-label">TRUSTED BY 30+ iGAMING BRANDS</div>
+    <div class="logos">
+      <div class="logo">Lucky Dreams</div>
+      <div class="logo">Crypto Casino</div>
+      <div class="logo">Drizzle</div>
+      <div class="logo">BetHog</div>
+      <div class="logo">Playbet.io</div>
+      <div class="logo">Coin88</div>
+      <div class="logo">Kryptosino</div>
+      <div class="logo">SpinBet</div>
+      <div class="logo">Telbet</div>
+      <div class="logo">StakePrix</div>
+      <div class="logo">MegaPari</div>
+      <div class="logo">Razed</div>
+      <div class="logo">Slot Bunny</div>
+      <div class="logo">Julius</div>
+      <div class="logo">CaptainSlots</div>
+      <div class="logo">Rollchain</div>
+      <div class="logo">BetBolt</div>
+      <div class="logo">Boxbet</div>
+      <div class="logo">Casiny</div>
+      <div class="logo">Fortune Jack</div>
+      <div class="logo">GrandzBet</div>
+      <div class="logo">Hazcasino</div>
+      <div class="logo">HorusCasino</div>
+      <div class="logo">HugeWin</div>
+      <div class="logo">SpinBetter</div>
+      <div class="logo">SpinBit</div>
+      <div class="logo">Vegastars</div>
+      <div class="logo">Vegaz</div>
+      <div class="logo">XSpin</div>
+      <div class="logo">DBet</div>
+      <div class="logo">Play Frank</div>
+      <div class="logo">+ more</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 7 — AFFILIATES (FREE) ==================== -->
+<section class="slide" id="s7">
+  <div class="eyebrow">AFFILIATES — INCLUDED FREE</div>
+  <span class="slide-num">07 <span class="of">/</span> 18</span>
+
+  <div class="split narrow">
+    <div>
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--lime); letter-spacing: 0.06em; margin-bottom: 24px; text-transform: uppercase;">// $4,000/MO VALUE · INCLUDED FREE</div>
+      <h2 class="big">Affiliate ops, <span class="lime">on us.</span></h2>
+      <p class="lead">Affiliate sourcing, deal structuring, and reconciled payouts — all on the H.O.G platform — included free for the duration of this engagement. Fixed at the Aff-Starter $4,000/mo tier (20 affiliate requests/mo, 50 source slots, full toolkit).</p>
+      <p class="lead" style="margin-top: 20px;">It's the most expensive iGaming function for a new brand to run badly. We absorb it.</p>
+    </div>
+    <div class="grid-2" style="gap: 16px;">
+      <div class="card">
+        <div class="card-label">H.O.G Intelligence</div>
+        <p class="body">Source &amp; GEO discovery. Every SEO source scored with estimated FTDs, player LTV by market, conversion rates, GEO distribution.</p>
+        <span class="dot-accent"></span>
+      </div>
+      <div class="card">
+        <div class="card-label">Back-office tracking</div>
+        <p class="body">Affiliate tracking platform built into your back-office — not a separate vendor portal. Every affiliate, player, deposit, and payout reconciled in one place.</p>
+        <span class="dot-accent"></span>
+      </div>
+      <div class="card">
+        <div class="card-label">Deal logging &amp; payouts</div>
+        <p class="body">CPA, CPL, Rev Share, Hybrid, listing fees. Reconciled payouts via Daily Pay on-chain, batched CPA, or standard fiat/crypto. Full audit trail per deal.</p>
+        <span class="dot-accent"></span>
+      </div>
+      <div class="card">
+        <div class="card-label">Affiliate &amp; streamer escrow</div>
+        <p class="body">Funds locked on-platform at deal start, released against KPIs. Available for any affiliate or streamer deal — multiplicative, weighted, or CPA Daily Pay models.</p>
+        <span class="dot-accent"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 8 — SENTRY  ==================== -->
+<section class="slide" id="s8">
+  <div class="eyebrow">SENTRY — RISK · FRAUD · PAYMENT OPS</div>
+  <span class="slide-num">08 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Risk and payment operations, <span class="lime">vertical analysts.</span></h2>
+  <p class="lead">Pool-based delivery (3-brand cap per analyst). Calibration month at start. 200% cost cap. Tier grows with case volume per Aff-Starter's standard mechanics. Bundle pricing: 15% off public rates.</p>
+
+  <div class="expand-list">
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>What Sentry handles</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <ul>
+              <li>Multi-accounting &amp; bonus abuse investigations</li>
+              <li>Chargeback workflows &amp; dispute responses</li>
+              <li>Payment anomaly detection &amp; escalation</li>
+              <li>KYC review queues &amp; document verification</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li>Withdrawal review · PEP/sanctions screening</li>
+              <li>VIP risk profiling &amp; tier-up reviews</li>
+              <li>Affiliate fraud signal investigation</li>
+              <li>Compliance support · audit prep · evidence pulls</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>Tier pricing — 15% bundle discount</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner" style="grid-template-columns: 1fr;">
+          <div class="col">
+            <table class="tier">
+              <thead>
+                <tr><th>Tier</th><th>Public</th><th>Bundle</th><th>Volume</th><th>SLA · Coverage</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="t-name">Sentry-Lite</td><td class="t-was">$1,500</td><td class="t-now">$1,275</td><td class="t-specs">50 hrs/mo</td><td class="t-specs">8h · biz hours</td></tr>
+                <tr><td class="t-name">Sentry-Starter</td><td class="t-was">$4,500</td><td class="t-now">$3,825</td><td class="t-specs">200 hrs/mo</td><td class="t-specs">4h · extended</td></tr>
+                <tr><td class="t-name">Sentry-Driver</td><td class="t-was">$11,000</td><td class="t-now">$9,350</td><td class="t-specs">600 hrs/mo</td><td class="t-specs">1h · 24/7</td></tr>
+                <tr><td class="t-name">Sentry-Custom</td><td class="t-was">$20,000</td><td class="t-now">$17,000</td><td class="t-specs">Named agents</td><td class="t-specs">Bespoke</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>The mechanics — caps, calibration, brand limits</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>Calibration month</strong> · 30-day assessment, tier confirmed end of month 1.</p>
+            <p><strong>200% cost cap</strong> · invoice never exceeds 2× base rate, regardless of volume spike.</p>
+            <p><strong>250% volume → mandatory upgrade</strong> · quality protection, prevents under-served brands.</p>
+          </div>
+          <div class="col">
+            <p><strong>3-brand cap per analyst</strong> · pool routing refuses to over-assign.</p>
+            <p><strong>Cases never dropped</strong> · work continues at cap overrun.</p>
+            <p><strong>Time-based billing</strong> · 5 minutes used = 5 minutes billed. No surcharges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 9 — FRONTLINE  ==================== -->
+<section class="slide" id="s9">
+  <div class="eyebrow">FRONTLINE — CUSTOMER SERVICE</div>
+  <span class="slide-num">09 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Customer service <span class="lime">inside your helpdesk.</span></h2>
+  <p class="lead">Pool-based agents, brand-capped at 3 each, working inside Zendesk / Intercom / Freshdesk / Gorgias — wherever you run CS. Vertical-trained on bonus disputes, withdrawal escalation, VIP save desk, RG triage. Bundle pricing: 15% off public rates.</p>
+
+  <div class="expand-list">
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>What Frontline handles</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <ul>
+              <li>Live chat &amp; ticket queue resolution</li>
+              <li>Withdrawal status &amp; escalation</li>
+              <li>Bonus terms &amp; dispute follow-up</li>
+              <li>KYC document chase (player-side)</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li>Game &amp; technical complaints</li>
+              <li>VIP escalation routing with full context</li>
+              <li>Account recovery, MFA resets, security flows</li>
+              <li>Responsible Gaming triage &amp; escalation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>Tier pricing — 15% bundle discount</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner" style="grid-template-columns: 1fr;">
+          <div class="col">
+            <table class="tier">
+              <thead>
+                <tr><th>Tier</th><th>Public</th><th>Bundle</th><th>Volume</th><th>SLA · Coverage</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="t-name">Frontline-Lite</td><td class="t-was">$1,500</td><td class="t-now">$1,275</td><td class="t-specs">1,000 tickets</td><td class="t-specs">8h · biz hours</td></tr>
+                <tr><td class="t-name">Frontline-Starter</td><td class="t-was">$3,500</td><td class="t-now">$2,975</td><td class="t-specs">2,500 tickets</td><td class="t-specs">4h · extended</td></tr>
+                <tr><td class="t-name">Frontline-Driver</td><td class="t-was">$9,000</td><td class="t-now">$7,650</td><td class="t-specs">7,500 tickets</td><td class="t-specs">Real-time · 24/7</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>VIP save desk &amp; withdrawal escalation</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>VIP save desk</strong> · pattern-match on churn signals (LTV drop, withdrawal after long deposit streak, "closing my account" language), pull 90-day context, de-escalate, hand to retention with full thread.</p>
+            <p>Driver tier includes the full save desk workflow. Lower tiers handle triage and escalation routing.</p>
+          </div>
+          <div class="col">
+            <p><strong>Withdrawal complaints</strong> · the highest-stakes ticket type. CS can't release the withdrawal, but CS can stop the chargeback while risk decides.</p>
+            <p>De-escalate honestly, chase KYC docs player-side, set realistic timelines, document so risk doesn't get contradictory comms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 10 — SOCIAL  ==================== -->
+<section class="slide" id="s10">
+  <div class="eyebrow">SOCIAL — X + TELEGRAM</div>
+  <span class="slide-num">10 <span class="of">/</span> 18</span>
+
+  <div class="split narrow">
+    <div>
+      <h2 class="big">X and Telegram, <span class="lime">end to end.</span></h2>
+      <p class="lead">Daily content production, moderation, performance reporting. Driver tier adds 24/7 moderation, influencer outreach, weekly strategy review, and a 3am crisis-comms responder. Bundle pricing: 15% off public rates.</p>
+      <p class="lead" style="margin-top: 16px;">Most iGaming brands underserve social because daily output is hard to staff. We run it as a managed line.</p>
+    </div>
+    <div>
+      <table class="tier">
+        <thead>
+          <tr><th>Tier</th><th>Public</th><th>Bundle</th><th>Includes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="t-name">Social-Starter<br><span class="t-specs">1 channel</span></td>
+            <td class="t-was">$1,500</td>
+            <td class="t-now">$1,275</td>
+            <td class="t-specs">~30 posts/mo · business hours moderation · monthly report</td>
+          </tr>
+          <tr>
+            <td class="t-name">Social-Starter<br><span class="t-specs">Both channels</span></td>
+            <td class="t-was">$2,500</td>
+            <td class="t-now">$2,125</td>
+            <td class="t-specs">Above × 2 channels (X + Telegram)</td>
+          </tr>
+          <tr>
+            <td class="t-name">Social-Driver<br><span class="t-specs">Both channels</span></td>
+            <td class="t-was">$4,000</td>
+            <td class="t-now">$3,400</td>
+            <td class="t-specs">24/7 moderation · influencer outreach · weekly review · crisis cover</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 11 — TIMELINE  ==================== -->
+<section class="slide" id="s11">
+  <div class="eyebrow">TIMELINE</div>
+  <span class="slide-num">11 <span class="of">/</span> 18</span>
+
+  <h2 class="big">2 months to build. <span class="lime">Live in month 3.</span></h2>
+  <p class="lead">Build runs month 1 (workshop, brand setup, platform configuration, DexPay integration, content integration), testing runs month 2 (full validation, payment flow testing, security checks). Month 3 is go-live, which resets the clock — operations month 0. Calibration runs through op-months 1–2; full minimums apply from op-month 3.</p>
+
+  <div class="timeline">
+    <div class="timeline-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="tl-step live">
+        <div class="dot"></div>
+        <div class="phase">Month 1</div>
+        <h5>Build &amp; workshop</h5>
+        <p>Discovery workshop, brand &amp; product setup, platform configuration, DexPay crypto payments integration, QuestTracker custom build, multi-chain wallet setup, content integration. 50% setup paid on signature.</p>
+      </div>
+      <div class="tl-step live">
+        <div class="dot"></div>
+        <div class="phase">Month 2</div>
+        <h5>Testing &amp; validation</h5>
+        <p>Full platform testing, payment flow validation across chains, provably fair verification, security checks, end-to-end player journey testing.</p>
+      </div>
+      <div class="tl-step live">
+        <div class="dot"></div>
+        <div class="phase">Month 3 · Op-0</div>
+        <h5>Go-Live</h5>
+        <p>Platform launches to players. Final 50% setup released. Master licence active. Aff-Starter teams begin 30-day calibration. Monthly billing starts.</p>
+      </div>
+      <div class="tl-step">
+        <div class="dot"></div>
+        <div class="phase">Op-Month 3+</div>
+        <h5>Full operation</h5>
+        <p>After 2 calibration op-months at 50% platform min, full minimum applies ($6,500/mo or 7.5% GGR, whichever higher). Aff-Starter services at confirmed tier. WhaleCore on per-call billing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 12 — SETUP PAYMENT  ==================== -->
+<section class="slide" id="s12">
+  <div class="eyebrow">COMMERCIALS — SETUP</div>
+  <span class="slide-num">12 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Setup, paid in <span class="lime">two stages.</span></h2>
+  <p class="lead">Setup is split 50% on signature and 50% on go-live (month 3). The Curaçao licence application fee is £250 per domain, billed directly by your master licensing partner as the licence holder of record — separate from our setup invoice. No PSP onboarding fee — DexPay is in-house.</p>
+
+  <div class="grid-2 grid-mt-l">
+    <div class="price-tile">
+      <div class="price-tag">WAG3R setup</div>
+      <div class="price-num">$50,000</div>
+      <div class="price-note">TWO-STAGE PAYMENT</div>
+      <div class="price-rows">
+        <div class="price-row">
+          <span class="pr-l">50% on signature</span>
+          <span class="pr-r">$25,000</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">50% on go-live (month 3)</span>
+          <span class="pr-r">$25,000</span>
+        </div>
+      </div>
+    </div>
+    <div class="price-tile dark">
+      <div class="price-tag">Curaçao licence application</div>
+      <div class="price-num">£250</div>
+      <div class="price-note">AT LAUNCH · PER DOMAIN · LICENCE-HOLDER BILLED</div>
+      <div class="price-rows">
+        <div class="price-row">
+          <span class="pr-l">One-off Curaçao Gaming Authority fee</span>
+          <span class="pr-r">£250</span>
+        </div>
+        <div class="price-row total">
+          <span class="pr-l">Payable to licence holder directly</span>
+          <span class="pr-r">£250</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 56px;">
+    <span class="ctag">What setup buys —</span>
+    <span>The 2-month build, discovery workshop, QuestTracker custom features + front-end, DexPay crypto integration, brand provisioning, full launch readiness. WhaleCore has no setup fee. The £250 Curaçao licence application is the only at-launch item billed by the licence holder directly.</span>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 13 — MONTHLY + GGR  ==================== -->
+<section class="slide" id="s13">
+  <div class="eyebrow">COMMERCIALS — MONTHLY</div>
+  <span class="slide-num">13 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Monthly costs <span class="lime">grow with the brand.</span></h2>
+  <p class="lead">Two pricing windows post go-live. Op-months 1–2: platform at 50% minimum, Aff-Starter in calibration. Op-month 3+: full platform minimum (or 7.5% GGR if higher), Aff-Starter at confirmed tier — typically Starter for a ramping brand. WhaleCore is metered per-call on top. DexPay crypto payments bundled in platform — no separate line.</p>
+
+  <div class="grid-2 grid-mt-l">
+    <div class="price-tile">
+      <div class="price-tag">Op-Months 1 – 2 (calibration)</div>
+      <div class="price-num">~$7,075<span class="unit"> /mo</span></div>
+      <div class="price-rows">
+        <div class="price-row">
+          <span class="pr-l">WAG3R platform (50% min, DexPay bundled)</span>
+          <span class="pr-r">$3,250</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Affiliates (FREE — $4k/mo value)</span>
+          <span class="pr-r" style="color:var(--lime);">$0</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Sentry-Lite (risk / payment ops)</span>
+          <span class="pr-r">$1,275</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Frontline-Lite (customer service)</span>
+          <span class="pr-r">$1,275</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Social-Starter (1 channel)</span>
+          <span class="pr-r">$1,275</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">WhaleCore (per-call usage)</span>
+          <span class="pr-r" style="color:var(--lime);">metered</span>
+        </div>
+        <div class="price-row total">
+          <span class="pr-l">Monthly to us</span>
+          <span class="pr-r">~$7,075</span>
+        </div>
+        <div class="price-row" style="border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 16px;">
+          <span class="pr-l" style="color: var(--text-soft); font-size: 11px;">+ Licence holder direct (Curaçao licence + facilitation)</span>
+          <span class="pr-r" style="color: var(--text-soft); font-size: 11px;">£2,250</span>
+        </div>
+      </div>
+    </div>
+    <div class="price-tile dark">
+      <div class="price-tag">Op-Month 3+ (full operation)</div>
+      <div class="price-num">~$15,425<span class="unit"> /mo</span></div>
+      <div class="price-rows">
+        <div class="price-row">
+          <span class="pr-l">WAG3R platform (full min, DexPay bundled)</span>
+          <span class="pr-r">$6,500</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Affiliates (FREE — $4k/mo value)</span>
+          <span class="pr-r" style="color:var(--lime);">$0</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Sentry-Starter (risk / payment ops)</span>
+          <span class="pr-r">$3,825</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Frontline-Starter (customer service)</span>
+          <span class="pr-r">$2,975</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">Social-Starter (both channels)</span>
+          <span class="pr-r">$2,125</span>
+        </div>
+        <div class="price-row">
+          <span class="pr-l">WhaleCore (per-call usage)</span>
+          <span class="pr-r" style="color:var(--lime);">metered</span>
+        </div>
+        <div class="price-row total">
+          <span class="pr-l">Monthly to us</span>
+          <span class="pr-r">~$15,425</span>
+        </div>
+        <div class="price-row" style="border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 16px;">
+          <span class="pr-l" style="color: var(--text-soft); font-size: 11px;">+ Licence holder direct (Curaçao licence + facilitation)</span>
+          <span class="pr-r" style="color: var(--text-soft); font-size: 11px;">£2,250</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="worked">
+    <div class="worked-label">HOW THE PLATFORM FEE WORKS</div>
+    <h4>Greater of $6,500/month minimum, <span class="lime">or</span> 7.5% of GGR.</h4>
+    <p>Once the brand ramps past ~$87k GGR/month, the % takes over. Below that, the minimum applies. The greater of the two is what you pay — no surprise stacking.</p>
+
+    <div class="scenarios">
+      <div class="scenario">
+        <div class="sc-ggr">GGR = $50,000/MO</div>
+        <div class="sc-calc">7.5% × $50,000 = $3,750<br>Minimum: $6,500</div>
+        <div class="sc-pay">$6,500</div>
+        <div class="sc-note">MINIMUM APPLIES</div>
+      </div>
+      <div class="scenario">
+        <div class="sc-ggr">GGR = $87,000/MO (BREAK-EVEN)</div>
+        <div class="sc-calc">7.5% × $87,000 = $6,525<br>Minimum: $6,500</div>
+        <div class="sc-pay">$6,525</div>
+        <div class="sc-note">% JUST ABOVE MIN</div>
+      </div>
+      <div class="scenario">
+        <div class="sc-ggr">GGR = $200,000/MO</div>
+        <div class="sc-calc">7.5% × $200,000 = $15,000<br>Minimum: $6,500</div>
+        <div class="sc-pay">$15,000</div>
+        <div class="sc-note">% APPLIES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 14 — PASS-THROUGH  ==================== -->
+<section class="slide" id="s14">
+  <div class="eyebrow">PASS-THROUGH</div>
+  <span class="slide-num">14 <span class="of">/</span> 18</span>
+
+  <h2 class="big">External costs, <span class="lime">honestly separated.</span></h2>
+  <p class="lead">Costs that are not absorbed in our pricing. Your master licensing partner has its own commercial agreement with you as licence holder — billed directly under their terms. Other items are contracted by you with the relevant vendor.</p>
+
+  <div class="expand-list">
+    <div class="expand open">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>Master licensing partner — direct commercial agreement</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>Monthly recurring</strong> · ~£2,250/mo combined (licence contribution, facilitation). No Payment IQ — crypto-only.</p>
+            <p><strong>One-off at launch</strong> · £250 (Curaçao licence application per domain). No PSP onboarding — DexPay is in-house.</p>
+          </div>
+          <div class="col">
+            <p>Your master licensing partner is the licence holder of record for Curaçao and contracts directly with you under their own commercial terms. We're closely integrated with them operationally, but billing flows from them to you.</p>
+            <p>Shown here for full cost-of-operation transparency — these line items are on the licensing partner's invoice, not ours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>Game content / provider fees</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>Typical range: 10–20% of GGR</strong> depending on the provider mix.</p>
+            <p>Slots aggregators (Pragmatic, Hacksaw, Push), live casino (Evolution, Pragmatic Live), and crash/instant providers each have their own rate cards.</p>
+          </div>
+          <div class="col">
+            <p>Contracted directly between you and providers (or via the licence holder where required by jurisdiction). We facilitate integrations on the platform side.</p>
+            <p>The actual mix and effective rate is a discovery workshop output.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>Marketing &amp; affiliate payouts</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>Marketing spend</strong> · paid media, influencer fees, sponsorships — your own budget.</p>
+            <p>Aff-Starter sources and manages affiliate deals, but affiliate payouts (CPA, rev share, listing fees) are your direct cost.</p>
+          </div>
+          <div class="col">
+            <p>We have a clean separation on operational cost vs acquisition cost — marketing never gets bundled into platform pricing.</p>
+            <p>Streamer escrow funds (if used) are also your funds, locked on-platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <button class="expand-trigger" onclick="this.parentElement.classList.toggle('open')">
+        <span>VAT, local taxes, and gaming duties</span>
+        <span class="expand-icon">+</span>
+      </button>
+      <div class="expand-body">
+        <div class="expand-inner">
+          <div class="col">
+            <p><strong>VAT</strong> · applied to invoices where applicable by jurisdiction. Licence-holder invoices already show "Tax on Sales" line items.</p>
+          </div>
+          <div class="col">
+            <p><strong>Gaming duties</strong> · any market-specific gaming taxes are your responsibility under the licence holder framework.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 15 — IN/OUT  ==================== -->
+<section class="slide" id="s15">
+  <div class="eyebrow">SCOPE BOUNDARY</div>
+  <span class="slide-num">15 <span class="of">/</span> 18</span>
+
+  <h2 class="big">What's in. <span class="dim">What's out.</span></h2>
+  <p class="lead">Clear scope upfront beats a renegotiation later.</p>
+
+  <div class="io">
+    <div class="io-col">
+      <h4>Included</h4>
+      <ul class="io-list">
+        <li>WAG3R platform &amp; brand build</li>
+        <li>Discovery workshop &amp; custom features (workshop-scoped)</li>
+        <li>Provably fair game integration + on-chain transparency</li>
+        <li>Multi-chain wallet (BTC, ETH, USDT, USDC, SOL, +)</li>
+        <li>DexPay crypto payments (bundled, no separate line)</li>
+        <li>QuestTracker custom features + front-end build</li>
+        <li>Bonus Coin internal loyalty currency</li>
+        <li>Infrastructure &amp; hosting (core)</li>
+        <li>One developer per month — maintenance &amp; minor features</li>
+        <li>Master licence facilitation (Curaçao)</li>
+        <li>Aff-Starter Affiliates — FREE ($4k/mo value)</li>
+        <li>Affiliate tracking platform in back-office</li>
+        <li>Affiliate &amp; streamer escrow (any deal, not just streamers)</li>
+        <li>Aff-Starter Sentry — tier-based, bundle-discounted</li>
+        <li>Aff-Starter Frontline — tier-based, bundle-discounted</li>
+        <li>Aff-Starter Social — tier-based, bundle-discounted</li>
+      </ul>
+    </div>
+    <div class="io-col out">
+      <h4>Not included</h4>
+      <ul class="io-list">
+        <li>Game content / provider fees</li>
+        <li>Marketing &amp; paid media spend</li>
+        <li>Affiliate payouts (CPA, rev share, listing fees)</li>
+        <li>Launched / listed blockchain token (Bonus Coin is internal-only)</li>
+        <li>Fiat payment ramps (crypto-only build)</li>
+        <li>VAT &amp; local taxes</li>
+        <li>Gaming duties &amp; regulatory levies</li>
+        <li>MLRO / DPO / compliance officer of record</li>
+        <li>Sports betting (handled via Databet directly)</li>
+        <li>Custom features outside workshop scope (quoted separately)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 16 — VALUE COMPARISON  ==================== -->
+<section class="slide" id="s16">
+  <div class="eyebrow">VALUE — WHAT'S BUNDLED</div>
+  <span class="slide-num">16 <span class="of">/</span> 18</span>
+
+  <h2 class="big">What this costs <span class="lime">separately.</span></h2>
+  <p class="lead">Most operators stitch this together vendor-by-vendor — affiliate software, tracking, risk staff, customer service, social media, payment processor, escrow tools. Each a separate contract and invoice. Industry-typical rates for the same components are below.</p>
+
+  <table class="tier" style="margin-top: 56px;">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Bought separately (typical)</th>
+        <th>With us</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="t-name">Affiliate management platform</td>
+        <td class="t-was">$3,000 – $8,000/mo</td>
+        <td class="t-now">FREE ($4k/mo value)</td>
+      </tr>
+      <tr>
+        <td class="t-name">Affiliate tracking software</td>
+        <td class="t-was">$1,500 – $5,000/mo</td>
+        <td class="t-now">Included in back-office</td>
+      </tr>
+      <tr>
+        <td class="t-name">QuestTracker custom + front-end</td>
+        <td class="t-was">$15,000 – $30,000+ build</td>
+        <td class="t-now">Included in setup</td>
+      </tr>
+      <tr>
+        <td class="t-name">Crypto payment processor</td>
+        <td class="t-was">$1,000 – $5,000/mo + tx fees</td>
+        <td class="t-now">DexPay bundled</td>
+      </tr>
+      <tr>
+        <td class="t-name">Multi-chain wallet integration</td>
+        <td class="t-was">$20,000 – $50,000+ setup</td>
+        <td class="t-now">Included in platform</td>
+      </tr>
+      <tr>
+        <td class="t-name">Risk / fraud operations</td>
+        <td class="t-was">$5,000 – $10,000/mo (or $60k+/yr FTE)</td>
+        <td class="t-now">Sentry from $1,275/mo (-15%)</td>
+      </tr>
+      <tr>
+        <td class="t-name">Customer service (24/7 managed)</td>
+        <td class="t-was">$3,000 – $8,000/mo</td>
+        <td class="t-now">Frontline from $1,275/mo (-15%)</td>
+      </tr>
+      <tr>
+        <td class="t-name">Social media management</td>
+        <td class="t-was">$2,000 – $5,000/mo per channel</td>
+        <td class="t-now">Social from $1,275/mo (-15%)</td>
+      </tr>
+      <tr>
+        <td class="t-name">Affiliate & streamer escrow</td>
+        <td class="t-was">DIY + legal coordination</td>
+        <td class="t-now">Included on-platform</td>
+      </tr>
+      <tr>
+        <td class="t-name">Wallet-level player intelligence</td>
+        <td class="t-was">No equivalent in market</td>
+        <td class="t-now">WhaleCore (per-call usage)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 56px;">
+    <span class="ctag">Net effect —</span>
+    <span>For a typical ramping crypto brand, that&rsquo;s <strong>$10,000 – $20,000/mo in vendor costs absorbed</strong>, plus <strong>$35,000 – $80,000+ in setup costs avoided</strong>. Ranges are industry-typical; actual savings depend on the operator&rsquo;s stack choices.</span>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 17 — TERM &amp; EXIT  ==================== -->
+<section class="slide" id="s17">
+  <div class="eyebrow">TERM &amp; EXIT</div>
+  <span class="slide-num">17 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Honest terms. <span class="lime">Clean exit.</span></h2>
+  <p class="lead">12-month minimum on the platform engagement so the launch math works for both sides. After Y1, services flex; the platform sits on standard renewal.</p>
+
+  <div class="terms">
+    <div class="term">
+      <div class="term-tag">Minimum term</div>
+      <h4>12 months</h4>
+      <p>Platform commitment plus Aff-Starter services. Aligns with the launch + ramp window where deal economics need to settle.</p>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="term">
+      <div class="term-tag">After Y1</div>
+      <h4>30-day notice</h4>
+      <p>Aff-Starter services move to 30-day rolling termination — drop any service, change tier, or exit entirely with one month's notice.</p>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="term">
+      <div class="term-tag">On exit</div>
+      <h4>Data portable</h4>
+      <p>Player data, brand assets, and full operational records exportable. We facilitate migration to a successor platform if it ever comes to that.</p>
+      <span class="dot-accent"></span>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 56px;">
+    <span class="ctag">No surprises —</span>
+    <span>Tier changes apply next billing period across every service line. No mid-month invoice surprises. External costs (licensing, game content, marketing) line-itemised separately by their own vendors.</span>
+  </div>
+</section>
+
+<!-- ====================  SLIDE 19 — NEXT STEPS  ==================== -->
+<section class="slide" id="s19">
+  <div class="eyebrow">NEXT STEPS</div>
+  <span class="slide-num">18 <span class="of">/</span> 18</span>
+
+  <h2 class="big">Sign, scope, build, <span class="lime">launch.</span></h2>
+  <p class="lead">Four steps, two months, one go-live date.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h5>Sign &amp; 50%</h5>
+      <p>Contract signed, first $25k of setup paid. Aff-Starter services scheduled for calibration at go-live.</p>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h5>Workshop &amp; build</h5>
+      <p>Month 1: workshop + brand + platform configuration, DexPay integration, QuestTracker custom build, content integration.</p>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h5>Testing</h5>
+      <p>Month 2: full validation, payment flow testing across chains, security checks, end-to-end player journey testing.</p>
+      <span class="dot-accent"></span>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h5>Go-live</h5>
+      <p>Month 3: final $25k released. Aff-Starter calibration begins. Brand live to players. Op-month 1 starts the clock.</p>
+      <span class="dot-accent"></span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-meta">Ready when you are.<br>Reach out to set the workshop date.</div>
+    <a href="#s1" class="cta-btn">Let's launch <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ====================  FOOTER  ==================== -->
+<div class="footer">
+  <div class="left">
+    WAG3R <span class="plus">+</span> AFF-STARTER
+  </div>
+  <div class="right">
+    Crypto launch proposal · WAG3R + Aff-Starter · MAY 2026
+  </div>
+</div>
+
+<script>
+// Wrap strikethrough cells with inner span (enables animated draw)
+document.querySelectorAll('.tier td.t-was').forEach(td => {
+  td.innerHTML = '<span class="t-was-inner">' + td.innerHTML + '</span>';
+});
+
+// Intersection Observer — adds .visible class as each slide enters viewport,
+// triggering staggered fade-ins, lime accent reveal, and strikethrough draws
+const slideObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.slide').forEach(slide => {
+  slideObserver.observe(slide);
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const current = slides.findIndex(s => {
+    const rect = s.getBoundingClientRect();
+    return rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+  });
+  if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+    e.preventDefault();
+    const target = slides[Math.min(current + 1, slides.length - 1)];
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+  if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault();
+    const target = slides[Math.max(current - 1, 0)];
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>
